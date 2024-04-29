@@ -1,0 +1,49 @@
+{% extends 'ubase.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card mt-5 shadow-lg">
+                <div class="card-body p-5">
+                    <h1 class="card-title text-center mb-4">Add Movie</h1>
+                    <form method="post" action="{% url 'a_movie' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" name="prname" class="form-control" placeholder="Movie name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="prdesc" class="form-control" placeholder="Movie Description" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="date" name="dob" class="form-control" placeholder="Release date" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="act_name" class="form-control" placeholder="Actor name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="youtube" class="form-control" placeholder="Youtube link">
+                        </div>
+                        <div class="form-group">
+                            <select name="adcatg" class="form-control">
+                                <option value="" hidden>Category</option>
+                                {% for i in catg %}
+                                <option value="{{i.id}}">{{i.c_category}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="file" name="primg" accept="image/*" class="form-control-file">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success mt-3">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'abase.html' %}
+{% block content %}
+<div class="container">
+    <h1 class="text-center mt-5 mb-4">User Details</h1>
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                {% comment %} <th>Photo</th> {% endcomment %}
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in user %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.e_fname }} </td>
+                <td>{{ user.e_lname }}</td>
+                <td>{{ user.e_email }}</td>
+
+                {% comment %} <td>
+                    {% if user.photo %}
+                        <img src="{{ user.photo.url }}" height="120px" width="130px"> 
+                    {% else %}
+                        <img src="{% static 'img/default.jpeg' %}" height="120px" width="130px"> 
+                    {% endif %}
+                </td> {% endcomment %}
+
+                    <td>
+                    <a href="{% url 'deletecust' user.id %}" class="btn btn-danger btn-sm">Delete</a>
+                </td> 
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+
+
+
+{% comment %} 
+{% extends 'abase.html' %}
+{% block content %}
+{% load static %}
+<h1><center>Show Users </center></h1>
+    <div class="container-fluid">
+    <h2>Users Details</h2>
+    <table class="table table-dark table-hover text-center  mb-5 w-50" >
+        <tr>
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Photo</th>
+            <th>Action</th>
+        </tr>
+        {% for u in user %}
+        <tr>
+            <td>{{ u.id }}</td>
+            <td>{{ u.e_fname }} {{ u.e_lname }}</td>
+            <td>{{ u.Phone_numbr }}</td>
+            <td>{{ u.e_email }}</td>
+
+            <td>
+                {% if u.photo %}
+                    <img src="{{ u.photo.url }}" height="120px" width="130px"> 
+                {% else %}
+                    <img src="{% static 'img/default.jpeg'  %}" height="120px" width="130px"> 
+                {% endif %}</td>
+            {% comment %} <td><a href="{% url 'edit_movie' prod.id %}" class="btn btn-success">Edit</a> {% endcomment %}
+
+
+
+            {% comment %} <td><a href="{% url 'deletecust' u.id %}" class="btn btn-danger">Delete</a></td>
+        {% endfor %}
+    </tr>
+    </table>
+</div>
+{% endblock %}  {% endcomment %}

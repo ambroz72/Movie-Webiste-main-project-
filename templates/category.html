@@ -1,0 +1,36 @@
+{% extends 'abase.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center mt-5 mb-4">Add Category</h1>
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <form class="forms-sample" method="post" action="{% url 'cat' %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="categoryInput" class="form-label">Category</label>
+                            <input type="text" name="pcatgr" placeholder="Category" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+{% comment %} {% extends 'abase.html' %}
+<h1><center>Add Category </center></h1>
+<form class="forms-sample"method="post" action="{% url 'cat' %}">
+    {% csrf_token %}
+  <div class="form-group">
+    <label for="exampleInputUsername1">Category</label>
+    <input  type="text" name="pcatgr" placeholder=" Category" class="form-control" required>
+  </div>
+  <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
+</form> {% endcomment %}

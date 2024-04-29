@@ -1,0 +1,26 @@
+{% extends 'ubase.html' %}
+{% block content %}
+
+
+<div class="row">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Employee Feedback</h4>
+        <form class="forms-sample" method='post' action="{% url 'etfeed' %}" class="was-validated">
+            {% csrf_token %}
+          <div class="form-group">
+            <label for="exampleInputUsername1"></label>
+            <input type="date"  name="edate"  placeholder="Date" style="height: 55px;"  class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Review</label>
+            <input type="text"  name="efeed" placeholder="Review" style="height: 55px;"  class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
+          <button class="btn btn-light">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'ubase.html' %}
+
+{% block content %}
+<br><br>
+<h2 class="text-center mb-4">Review and Rating</h2>
+<div class="row justify-content-center">
+  {% for sfeeds in sfeed %}
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Movie: {{ sfeeds.re_feed }}</h4>
+        <h5 class="card-subtitle mb-2 text-muted">Name: {{ sfeeds.re_name }}</h5>
+        <div class="row">
+          <div class="col-md-6">
+            <address>
+              <p class="font-weight-bold"> Date: {{ sfeeds.re_DOB }}</p>
+              <p class="font-weight-bold"> Rating: {{ sfeeds.re_rating }}</p>
+            </address>
+          </div>
+        </div>
+        <p class="lead">Review: {{ sfeeds.re_post }}</p>
+        <div class="container">
+          {% comment %} <a href="/delete_feed/{{ sfeeds.id }}" class="btn btn-danger">Delete</a> {% endcomment %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
+
+
+
+
+
+
+{% comment %} {% extends 'ubase.html' %}
+{% block content %}
+
+<br><br>
+{% for sfeeds in sfeed %}
+<div class="col-md-6 grid-margin stretch-card">
+  <div class="card">
+      <div class="card-body">
+         <h4 class="card-title">Movie: {{sfeeds.re_movie.m_title }}</h4> 
+        <h4 class="card-title">Movie: {{sfeeds.re_feed }}</h4>
+          <h4 class="card-title">Name: {{sfeeds.re_name}}</h4>
+          <div class="row">
+              <div class="col-md-6">
+                  <address>
+              <div class="col-md-6">
+                  <div class="text-primary">
+<p class="font-weight-bold"> Date : {{sfeeds.re_DOB}}</p>
+<p class="font-weight-bold"> Rating : {{sfeeds.re_rating}}</p>
+</address></div></div></div>
+      <div class="card-body">
+          <p class="lead">Review: {{sfeeds.re_post}} </p>
+          <div class="container">
+              <a href="/delete_feed/{{sfeeds.id}}" class="btn btn-danger">Delete</a>
+              </div>
+      </div>
+  </div>
+</div>
+{% endfor %} 
+{% endblock %} {% endcomment %}

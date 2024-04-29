@@ -1,0 +1,93 @@
+{% extends 'ubase.html' %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title mb-0">Add New Movie</h5>
+                </div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data" action="{% url 'add_movie' %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Title of Movie:</label>
+                            <input type="text" name="title" class="form-control" placeholder="Enter movie title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="desc" class="form-label">Description:</label>
+                            <textarea name="desc" class="form-control" rows="3" placeholder="Enter movie description" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="date" class="form-label">Release Date:</label>
+                            <input type="date" name="date" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="aname" class="form-label">Actor Name:</label>
+                            <input type="text" name="aname" class="form-control" placeholder="Enter actor name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ylink" class="form-label">Youtube Link:</label>
+                            <input type="text" name="ylink" class="form-control" placeholder="Enter Youtube link" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="img" class="form-label">Image:</label>
+                            <input type="file" name="img" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+{% comment %} 
+{% extends 'ubase.html' %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Add New Movie</h5>
+                </div>
+                <div class="card-body">
+                    <form method='POST' enctype='multipart/form-data' action="{% url 'add_movie' %}" >
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Title of movie:</label>
+                            <input type='text' name='title' class="form-control" placeholder='Enter movie name' required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="desc" class="form-label">Description:</label>
+                            <textarea name='desc' class="form-control" rows="3" placeholder='Enter movie description' required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="date" class="form-label">Date:</label>
+                            <input type='date' name='date' class="form-control" placeholder='Enter release year' required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="aname" class="form-label">Actor name:</label>
+                            <input type='text' name='aname' class="form-control" placeholder='Enter actor name' required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ylink" class="form-label">Youtube link:</label>
+                            <textarea name='ylink' class="form-control" rows="3" placeholder='Youtube link' required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="img" class="form-label">Image:</label>
+                            <input type='file' name='img' class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} {% endcomment %}

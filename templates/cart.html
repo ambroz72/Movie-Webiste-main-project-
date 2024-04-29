@@ -1,0 +1,33 @@
+{% extends 'ubase.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="mt-4 mb-4">Your Cart</h1>
+            <div class="row">
+                {% if cart_movies %}
+                    {% for movie in cart_movies %}
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <img src="{{ movie.m_img.url }}" class="card-img-top" alt="{{ movie.m_title }}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ movie.m_title }}</h5>
+                                    <p class="card-text">{{ movie.m_desc }}</p>
+                                    <form action="{% url 'delete_movie' movie.id %}" method="POST">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-danger">Remove from Cart</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="col-md-12">
+                        <p>Your cart is empty.</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+
+{% extends 'ubase.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    </ul>
+    <h1><center>Movies in Category: {{ category.c_category }}</center></h1><br><br>
+<!-- Movie cards -->
+<div class="container-fluid">
+    <div class="row">
+        {% if movies %}
+        {% for movie in movies %}
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4 movie-card" data-category="{{ movie.category }}">
+            <div class="card shadow">
+                <img src="{{ movie.m_img.url }}" class="card-img-top" alt="Movie img" style="height: 100px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ movie.m_title }}</h5>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="{% url 'movie_details' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="movie_details" value="{{ movie.m_title }}">
+                        <button type="submit" class="btn btn-primary">Details</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="col-md-12">
+            <h1>Sorry..................</h1><br>
+            <h3>There are no movies related to this category</h3>
+        </div>
+    {% endif %}
+    </div>
+</div>
+
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% load static %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/a5d3a2490b.js" crossorigin="anonymous"></script>
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Movie-Web</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+
+
+          <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" data-toggle="dropdown"><b>Category</b> </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="{% url 'add_category' %}">Add Category</a>
+              <a class="dropdown-item" href="{% url 'show_category' %}">Edit Category</a>
+            </div>
+        </li>
+
+          <li class="nav-item">
+
+            {% comment %} <a class="nav-link " href="{% url 'add_movie' %}" tabindex="-1" aria-disabled="true">Add Movie</a>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'cart' %}"><b>Cart</b></a></li> {% endcomment %}
+            <li class="nav-item"> <a class="nav-link"href="{% url 'show_user' %}"><b>Show Users</b></a></li>
+            <li class="nav-item"> <a class="nav-link"href="{% url 'showmovie' %}"><b>Show Movies</b></a></li>
+            <li class="nav-item"><a class="nav-link"href="{% url 'show_efeed' %}"><b>Review</b></a></li>
+            <li class="nav-item"> <a class="nav-link"href="{% url 'signuppage' %}"><b>Sign up</b></a></li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'loginpage' %}"><b>Login</b></a></li>
+           
+            <li class="nav-item"><a class="nav-link " href="{% url 'Logout' %}"> <b>Log Out</b></a>
+            <li class="nav-item active"><a class="nav-link " href="#"> <b>Login: Admin</b></a>
+          </li>
+        </ul>
+
+        {% comment %} <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form> {% endcomment %}
+
+      </div>
+    </div>
+  </nav>
+  <style>
+    body {
+        background-color: aquamarine;
+    }
+    .footer { text-align: center;
+      position:fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 3%;
+      background-color: rgb(11, 15, 13);
+      color: rgb(247, 243, 243);
+      overflow:auto;      }
+.img { font-size: 1vw; }
+
+  </style>
+{% block content %}
+
+{% endblock %}
+<div class="footer"><h4> © 2024 MOVIES CLUB. ALL RIGHTS RESERVED</h4> </div>

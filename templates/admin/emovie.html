@@ -1,0 +1,74 @@
+{% extends 'abase.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card mt-5 shadow-lg">
+                <div class="card-body p-5">
+                    <h1 class="card-title text-center mb-4">Edit Movie</h1>
+                    <form method="post" action="/e_movie/{{prod.id}}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" name="nprname" value="{{prod.m_title}}" class="form-control" placeholder="Movie Title" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="nprdesc" value="{{prod.m_desc}}" class="form-control" placeholder="Movie Description" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="date" name="nprprice" value="{{prod.m_DOB}}" class="form-control" placeholder="Release date" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="nprstock" value="{{prod.m_act}}" class="form-control" placeholder="Actor name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="nprstock" value="{{prod.m_youtube}}" class="form-control" placeholder="Youtube link">
+                        </div>
+                        <div class="form-group">
+                            <select name="nadcatg" class="form-control">
+                                <option value="" hidden>Category</option>
+                                {% for e in ecatg %}
+                                <option value="{{e.id}}">{{e.c_category}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="file" name="nprimg" accept="image/*" value="{{prod.m_img}}" class="form-control-file">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success mt-3">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+{% comment %} 
+{% extends 'abase.html' %}
+{% block content %}
+    <h1><center>Edit Movie </center></h1>
+    <div class="container">
+<form method="post" action="/e_movie/{{prod.id}}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="text" name="nprname" value="{{prod.m_title}}"class="form-control mt-3" placeholder="Movie Title"><br>
+    <input type="text" name="nprdesc" value="{{prod.m_desc}}"class="form-control mt-3" placeholder="Movie  Description"><br>
+    <input type="date" name="nprprice" value="{{prod.m_DOB}}"class="form-control mt-3" placeholder="Movie relese date"><br>
+    <input type="text" name="nprstock" value="{{prod.m_act}}"class="form-control mt-3" placeholder="Actor name"><br>
+    <input type="text" name="nprstock" value="{{prod.m_youtube}}"class="form-control mt-3" placeholder="Youtube link"><br>
+    <select name="nadcatg" class="form-control mt-3">
+    <option value=""hidden>Category</option>
+        {% for e in ecatg %}
+        <option value="{{e.id}}">{{e.c_category}}</option>
+        {% endfor %}
+    </select>
+    <input type="file" name="nprimg" accept="P_img/*"  value="{{prod.m_img}}"class="form-control mt-3" placeholder="Movie image"><br>
+    <button type="submit" class="btn btn-success mt-3">Submit</button>
+</form>
+</div>
+{% endblock %} {% endcomment %}

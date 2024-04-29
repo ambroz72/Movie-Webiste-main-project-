@@ -1,0 +1,92 @@
+{% extends 'abase.html' %}
+{% block content %}
+
+<div class="container">
+    <h1 class="text-center mt-5 mb-4">Movies</h1>
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Release Date</th>
+                <th>Actor</th>
+                <th>Youtube Link</th>
+                <th>Category</th>
+                {% comment %} <th>Image</th> {% endcomment %}
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for prod in prod %}
+            <tr>
+                <td>{{ prod.id }}</td>
+                <td>{{ prod.m_title }}</td>
+                <td>{{ prod.m_desc }}</td>
+                <td>{{ prod.m_DOB }}</td>
+                <td>{{ prod.m_act }}</td>
+                <td>{{ prod.m_youtube }}</td>
+                <td>{{ prod.m_cat.c_category }}</td>
+                
+                {% comment %} <td>
+                    {% if prod.m_img %}
+                        <img src="{{ prod.m_img.url }}" height="120px" width="130px"> 
+                    {% else %}
+                        <img src="{% static 'img/default.jpeg' %}" height="120px" width="130px"> 
+                    {% endif %}
+                </td> {% endcomment %}
+
+                <td>
+                    <a href="{% url 'edit_movie' prod.id %}" class="btn btn-success btn-sm">Edit</a>
+                    <a href="/delete_movie/{{ prod.id }}" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+
+{% comment %} {% extends 'abase.html' %}
+{% block content %}
+{% load static %}
+<h1><center>Show Movies</center></h1>
+    <div class="container">
+        <table class="table table-dark table-hover text-center  mb-5 w-60" >
+            <tr>
+                <th>id</th>
+                <th>Movie title</th>
+                <th>Movie description</th>
+                <th>Relese date</th>
+                <th>Actor name</th>
+                <th>Youtube link</th>
+                <th>Category</th>
+                <th>movie Image</th>
+                <th>Action</th>
+            </tr>
+            {% for prod in prod %}
+
+            <tr>
+                <td>{{prod.id}}</td>
+                <td>{{prod.m_title}}</td>
+                <td>{{prod.m_desc}}</td>
+                <td>{{prod.m_DOB}}</td>
+                <td>{{prod.m_act}}</td>
+                <td>{{prod.m_youtube}}</td>
+                <td>{{prod.m_cat.c_category}}</td>
+                <td>
+                    {% if prod.Movie_img %}
+                        <img src="{{ prod.m_img.url }}" height="120px" width="130px"> 
+                    {% else %}
+                        <img src="{% static 'img/default.jpeg'  %}" height="120px" width="130px"> 
+                    {% endif %}
+                    </td>
+                <td><a href="{% url 'edit_movie' prod.id %}" class="btn btn-success">Edit</a>
+                        <a href="/delete_movie/{{prod.id}}" class="btn btn-danger">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %} {% endcomment %}

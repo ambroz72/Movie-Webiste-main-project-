@@ -1,0 +1,26 @@
+{% extends 'ubase.html' %}
+
+{% block content %}
+{% load static %}
+<br><br>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header"><h1 class="text-center">Welcome {{ usr.e_fname }} {{ usr.e_lname }}</h1></div>
+                <div class="card-body">
+                    {% comment %} <div class="nav-profile-img">
+                        <img src="{{usr.e_photo.url}}" height="300px" width="300px" alt="image">
+                        <span class="availability-status online"></span> {% endcomment %}
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{% load sweetify %}
+{% sweetify %}
+
+{% endblock %}

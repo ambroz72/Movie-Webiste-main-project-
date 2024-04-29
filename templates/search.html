@@ -1,0 +1,58 @@
+{% extends 'ubase.html' %}
+{% block content %}
+{% load static %}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                {% if film.m_img %}
+                <img src="{{ film.m_img.url }}" class="card-img-top img-fluid" alt="Movie Poster">
+                {% else %}
+                <img src="https://www.genocideresearchhub.org.rw/wp-content/uploads/2021/12/1024px-User-avatar.svg_.png" class="card-img-top img-fluid" alt="Default Image">
+                {% endif %}
+                <div class="card-body text-center">
+                    <h5 class="card-title">Movie Poster</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <h2>{{ film.m_title }}</h2>
+            <h6 class="text-muted">Movie Info: {{ film.m_desc }}</h6>
+            <div class="table-responsive">
+                <table class="table table-bordered mt-4">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Movie Title</th>
+                            <th>Description</th>
+                            <th>Date of Release</th>
+                            <th>Actor</th>
+                            <th>Youtube Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ film.id }}</td>
+                            <td>{{ film.m_title }}</td>
+                            <td>{{ film.m_desc }}</td>
+                            <td>{{ film.m_DOB }}</td>
+                            <td>{{ film.m_act }}</td>
+                            <td><a href="{{ film.m_youtube }}" target="_blank">Watch Now</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mt-4">{{ film.desc }}</p>
+            <button class="btn btn-primary" onclick="myFunction()">Issue Request</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function myFunction() {
+        alert("Issue request sent successfully!");
+    }
+</script>
+
+{% endblock %}

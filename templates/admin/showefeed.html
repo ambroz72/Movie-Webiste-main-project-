@@ -1,0 +1,59 @@
+{% extends 'abase.html' %}
+{% block content %}
+<br><br>
+<h2 class="text-center mb-4">Review and Rating</h2>
+<div class="row justify-content-center">
+  {% for efeeds in efeed %}
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Movie: {{ efeeds.re_feed }}</h4>
+        <h5 class="card-subtitle mb-2 text-muted">Name: {{ efeeds.re_name }}</h5>
+        <div class="row">
+          <div class="col-md-6">
+            <address>
+              <p class="font-weight-bold"> Date: {{ efeeds.re_DOB }}</p>
+              <p class="font-weight-bold"> Rating: {{ efeeds.re_rating }}</p>
+            </address>
+          </div>
+        </div>
+        <p class="lead">Review: {{ efeeds.re_post }}</p>
+        <div class="container">
+          <a href="/delete_feed/{{ efeeds.id }}" class="btn btn-danger">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
+
+{% comment %} {% extends 'abase.html' %}
+{% block content %}
+
+<br><br>
+{% for efeeds in sfeed %}
+<div class="col-md-6 grid-margin stretch-card">
+  <div class="card">
+      <div class="card-body">
+     <h4 class="card-title">Movie: {{efeeds.re_movie.m_title }}</h4> 
+        <h4 class="card-title">Movie: {{efeeds.re_feed }}</h4>
+          <h4 class="card-title">Name: {{efeeds.re_name}}</h4>
+          <div class="row">
+              <div class="col-md-6">
+                  <address>
+              <div class="col-md-6">
+                  <div class="text-primary">
+<p class="font-weight-bold"> Date : {{efeeds.re_DOB}}</p>
+<p class="font-weight-bold"> Rating : {{efeeds.re_rating}}</p>
+</address></div></div></div>
+      <div class="card-body">
+          <p class="lead">Review: {{efeeds.re_post}} </p>
+          <div class="container">
+              <a href="/delete_feed/{{efeeds.id}}" class="btn btn-danger">Delete</a>
+              </div>
+      </div>
+  </div>
+</div>
+{% endfor %} 
+{% endblock %} {% endcomment %}

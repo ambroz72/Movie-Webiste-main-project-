@@ -1,0 +1,69 @@
+{% extends 'ubase.html' %}
+
+{% block content %}
+{% load static %}
+<br><br>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="text-center">Profile: {{ usr.e_fname }} {{ usr.e_lname }}</h1>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="/eprofile/" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="pfname">First Name:</label>
+                            <input type="text" class="form-control" id="pfname" name="pfname" value="{{ data1.e_fname }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="plname">Last Name:</label>
+                            <input type="text" class="form-control" id="plname" name="plname" value="{{ data1.e_lname }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail:</label>
+                            <input type="email" class="form-control" id="e-mail" name="e-mail" value="{{ data1.e_email }}">
+                        </div><br>
+
+                        <div class="form-group">
+                            <label for="photo">Photo:</label>
+                            <input type="file" class="form-control-file" id="photo" name="photo" accept="image/*">
+                        </div><br>
+                        
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+{% comment %} {% extends 'ubase.html' %}
+{% block content %}
+{% load static %}
+
+
+<h1><center>Profile  {{ usr.e_fname }} {{ usr.e_lname }}</center></h1>
+    <form method="post" action="/eprofile/" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>First Name:</label>
+        <input type="text" name="pfname" value="{{data1.First_name}}"><br><br>
+        <label>Last Name:</label>
+        <input type="text" name="plname" value="{{data1.Last_name}}"><br><br>
+        <label>E-mail id</label>
+        <input type="number" name="e-mail" value="{{data1.E_mail}}"><br><br>
+        <label>Photo:</label>
+        <input type="file" name="pht" accept="user_img/*"><br><br>
+
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+    
+{% endblock %} {% endcomment %}
