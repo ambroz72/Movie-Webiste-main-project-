@@ -58,8 +58,12 @@ Register for an account and provide profile information.
 Submit reviews and ratings for movies.
 View all user reviews (Admin).
 
+![screenshot](screenshot/addmovie.png)
+
 Shopping Cart (Future Implementation):
 Add movies to a shopping cart (placeholder functionality included).
+
+![screenshot](screenshot/cart.png)
 
 Key Features:
 User authentication and authorization.
@@ -67,6 +71,8 @@ Category-based movie organization.
 User review and feedback system.
 SweetAlert integration for user feedback notifications (success, error).
 File upload for movie images (Admin).
+
+![screenshot](screenshot/soretcat.png)
 
 Getting Started:
 Clone the repository using git clone https://github.com/your-username/movie-web.git.
