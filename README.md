@@ -75,12 +75,60 @@ File upload for movie images (Admin).
 
 ![screenshot](screenshot/sortcat.png)
 
-# Getting Started:
-Clone the repository using git clone https://github.com/your-username/movie-web.git.
-Install required dependencies using pip install -r requirements.txt.
-Configure database settings in codiac_shop/settings.py.
-Create database tables using python manage.py migrate.
-Run the development server using python manage.py runserver.
+
+# Technologies Used
+List the technologies and frameworks used in your project:
+
+Python
+Django
+HTML/CSS
+JavaScript 
+Django templates
+
+# Installation
+Provide step-by-step instructions on how to set up your project locally. Include prerequisites and commands to install dependencies.
+
+# 1 Clone the repository:
+
+git clone https://github.com/yourusername/your-repository.git
+cd your-repository
+
+# 2 Install dependencies:
+
+pip install -r requirements.txt
+
+# 3 Set up the database:
+
+python manage.py migrate
+
+# 4 Create a superuser (if applicable):
+
+python manage.py createsuperuser
+
+# 5 Run the development server:
+
+python manage.py runserver
+
+# 6 Access the application:
+Open your web browser and go to http://localhost:8000/ to see the application.**
+
+# Usage
+Explain how to use your application. Provide any specific instructions for navigating through different features.
+Navigate to http://localhost:8000/ to access the website.
+Sign up or log in to manage movies, categories, and user profiles.
+
+# Contributing
+If you want others to contribute to your project, outline guidelines for contributing, such as how to report issues or submit pull requests.
+
+# Credits
+Acknowledge any third-party resources, libraries, or tutorials that you used in your project.
+
+# Contact Information
+Provide your contact details or a way for users to reach out to you for questions or feedback.
+
+
+# Contributing
+Contributions are welcome! Please fork the repository and submit pull requests.
 
 # MIT License
 
