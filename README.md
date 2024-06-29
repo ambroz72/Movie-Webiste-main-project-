@@ -73,7 +73,7 @@ User review and feedback system.
 SweetAlert integration for user feedback notifications (success, error).
 File upload for movie images (Admin).
 
-![screenshot](screenshot/soretcat.png)
+![screenshot](screenshot/sortcat.png)
 
 # Getting Started:
 Clone the repository using git clone https://github.com/your-username/movie-web.git.
